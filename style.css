@@ -1,0 +1,57 @@
+body {
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.left,
+.right {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    min-height: 400px;
+}
+
+.left {
+    background-color: #f9f9f9;
+}
+
+.right {
+    background-color: #f1f7ff;
+}
+
+.school {
+    margin-bottom: 20px;
+}
+
+.school h5 {
+    margin-bottom: 10px;
+}
+
+.subject {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.subject.dragging {
+    opacity: 0.5;
+}
+
+.selected-subject {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+}

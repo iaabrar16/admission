@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Include Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1 class="text-center mb-4">Subject Selection (Max 3 Schools)</h1>
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left">
+            <!-- School 1 -->
+            <div class="school" id="school-1">
+                <h5>School of Business and Economics (SoBE)</h5>
+                <div class="subject" data-school="SoBE">Bachelor of Business Administration (BBA)</div>
+                <div class="subject" data-school="SoBE">BBA in Accounting and Information Systems (BBA in AIS)</div>
+                <div class="subject" data-school="SoBE">Bachelor of Science in Economics</div>
+            </div>
+
+            <!-- School 2 -->
+            <div class="school" id="school-2">
+                <h5>School of Science and Engineering (SoSE)</h5>
+                <div class="subject" data-school="SoSE">B.Sc. in Civil Engineering (CE)</div>
+                <div class="subject" data-school="SoSE">B.Sc. in Computer Science and Engineering (CSE)</div>
+                <div class="subject" data-school="SoSE">B.Sc. in Data Science (BSDS)</div>
+                <div class="subject" data-school="SoSE">B.Sc. in Electrical and Electronic Engineering (EEE)</div>
+            </div>
+
+            <!-- School 3 -->
+            <div class="school" id="school-3">
+                <h5>School of Humanities and Social Sciences (SoHSS)</h5>
+                <div class="subject" data-school="SoHSS">BSS in Environment and Development Studies (BSEDS)</div>
+                <div class="subject" data-school="SoHSS">BSS in Media Studies and Journalism (MSJ)</div>
+                <div class="subject" data-school="SoHSS">BA in English</div>
+            </div>
+
+            <!-- School 4 -->
+            <div class="school" id="school-4">
+                <h5>School of Life Sciences (SoLS)</h5>
+                <div class="subject" data-school="SoLS">Bachelor of Pharmacy (B. Pharm.)</div>
+                <div class="subject" data-school="SoLS">Bachelor of Science in Biotechnology and Genetic Engineering
+                    (BSBGE)</div>
+            </div>
+        </div>
+
+        <!-- Right Section (Selected Subjects) -->
+        <div class="right">
+            <h3>Selected Subjects</h3>
+            <div id="selected-list"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Editing -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Subject Serial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Move the subject up or down:</p>
+                    <button class="btn btn-primary" id="move-up">
+                        <i class="bi bi-arrow-up-circle"></i> <!-- Up icon -->
+                        Move Up
+                    </button>
+                    <button class="btn btn-secondary" id="move-down">
+                        <i class="bi bi-arrow-down-circle"></i> <!-- Down icon -->
+                        Move Down
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
