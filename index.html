@@ -6,79 +6,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admission Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <!-- Include Bootstrap Icons CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1 class="text-center mb-1">Subject Selection (Max 3 Schools)</h1>
+    <h1 class="text-center mb-3">Subject Selection (Max 3 Schools)</h1>
     <div class="container">
         <!-- Left Section -->
         <div class="left">
             <!-- School 1 -->
             <div class="school" id="school-1">
                 <h5>School of Business and Economics (SoBE)</h5>
-                <div class="subject" data-school="SoBE">Bachelor of Business Administration (BBA)</div>
-                <div class="subject" data-school="SoBE">BBA in Accounting and Information Systems (BBA in AIS)</div>
-                <div class="subject" data-school="SoBE">Bachelor of Science in Economics</div>
-            </div>
+                <div class="subject" draggable="true" data-school="SoBE" data-eligible="true">Bachelor of Business
+                    Administration (BBA)</div>
+                <!-- <div class="note eligibility-note" style="display: none; color: red;">You are not eligible for this
+                                    subject</div> -->
 
+                <div class="subject" draggable="true" data-school="SoBE" data-eligible="true">BBA in Accounting and
+                    Information Systems (BBA
+                    in AIS)</div>
+
+                <div class="subject" draggable="true" data-school="SoBE" data-eligible="true">Bachelor of Science in
+                    Economics</div>
+
+
+                <div class="note" style="display: none; color: red;">Note: You already selected 3 Schools</div>
+            </div>
+            <hr>
             <!-- School 2 -->
             <div class="school" id="school-2">
                 <h5>School of Science and Engineering (SoSE)</h5>
-                <div class="subject" data-school="SoSE">B.Sc. in Civil Engineering (CE)</div>
-                <div class="subject" data-school="SoSE">B.Sc. in Computer Science and Engineering (CSE)</div>
-                <div class="subject" data-school="SoSE">B.Sc. in Data Science (BSDS)</div>
-                <div class="subject" data-school="SoSE">B.Sc. in Electrical and Electronic Engineering (EEE)</div>
-            </div>
+                <div class="subject" draggable="true" data-school="SoSE" data-eligible="true">B.Sc. in Civil Engineering
+                    (CE)</div>
 
+
+                <div class="subject" draggable="true" data-school="SoSE" data-eligible="true">B.Sc. in Computer Science
+                    and Engineering (CSE)
+                </div>
+
+
+                <div class="subject" draggable="true" data-school="SoSE" data-eligible="true">B.Sc. in Data Science
+                    (BSDS)</div>
+
+
+                <div class="subject" draggable="true" data-school="SoSE" data-eligible="true">B.Sc. in Electrical and
+                    Electronic
+                    Engineering(EEE)</div>
+
+
+                <div class="note" style="display: none; color: red;">Note: You already selected 3 Schools</div>
+            </div>
+            <hr>
             <!-- School 3 -->
             <div class="school" id="school-3">
                 <h5>School of Humanities and Social Sciences (SoHSS)</h5>
-                <div class="subject" data-school="SoHSS">BSS in Environment and Development Studies (BSEDS)</div>
-                <div class="subject" data-school="SoHSS">BSS in Media Studies and Journalism (MSJ)</div>
-                <div class="subject" data-school="SoHSS">BA in English</div>
-            </div>
+                <div class="subject" draggable="true" data-school="SoHSS" data-eligible="true">BSS in Environment and
+                    Development Studies
+                    (BSEDS)</div>
 
+                <div class="subject" draggable="true" data-school="SoHSS" data-eligible="true">BSS in Media Studies and
+                    Journalism (MSJ)
+                </div>
+
+
+                <div class="subject" draggable="true" data-school="SoHSS" data-eligible="false">BA in English</div>
+
+                <div class="note" style="display: none; color: red;">Note: You already selected 3 Schools</div>
+
+            </div>
+            <hr>
             <!-- School 4 -->
             <div class="school" id="school-4">
                 <h5>School of Life Sciences (SoLS)</h5>
-                <div class="subject" data-school="SoLS">Bachelor of Pharmacy (B. Pharm.)</div>
-                <div class="subject" data-school="SoLS">Bachelor of Science in Biotechnology and Genetic Engineering
-                    (BSBGE)</div>
+                <div class="subject" draggable="true" data-school="SoLS" data-eligible="true">Bachelor of Pharmacy (B.
+                    Pharm.)</div>
+
+                <div class="subject" draggable="true" data-school="SoLS" data-eligible="false">Bachelor of Science in
+                    Biotechnology and
+                    Genetic Engineering (BSBGE)</div>
+
+                <div class="note" style="display: none; color: red;">Note: You already selected 3 Schools</div>
+
             </div>
         </div>
 
         <!-- Right Section (Selected Subjects) -->
         <div class="right">
             <h3>Selected Subjects</h3>
-            <div id="selected-list"></div>
-        </div>
-    </div>
-
-    <!-- Modal for Editing -->
-    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Subject Serial</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Move the subject up or down:</p>
-                    <button class="btn btn-primary" id="move-up">
-                        <i class="bi bi-arrow-up-circle"></i> <!-- Up icon -->
-                        Move Up
-                    </button>
-                    <button class="btn btn-secondary" id="move-down">
-                        <i class="bi bi-arrow-down-circle"></i> <!-- Down icon -->
-                        Move Down
-                    </button>
-                </div>
+            <div id="selected-list" class="drag-target"></div>
+            <div class="calculation">
+                <p id="selected-schools-count">Number of Selected School(s): 0</p>
+                <p id="total-fees">Total Admission Form Fees: BDT. 0</p>
             </div>
         </div>
     </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
